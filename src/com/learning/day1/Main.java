@@ -1,3 +1,5 @@
+package com.learning.day1;
+
 public class Main {
     static void main(String[] args) {
         Person p1 = new Person("het", 22, "het987pat@gmail.com");

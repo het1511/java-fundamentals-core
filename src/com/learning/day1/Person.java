@@ -1,3 +1,5 @@
+package com.learning.day1;
+
 public class Person {
     //Data
     private String name;
@@ -45,6 +47,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{name='" + this.name + "', age=" + this.age + "}";
+        return "com.learning.day1.Person{name='" + this.name + "', age=" + this.age + "}";
     }
 }
