@@ -4,8 +4,16 @@ public class Main {
     public static void main(String[] args) {
         BankAccount acc = new BankAccount("Het");
 
-        acc.deposit(500);
-        acc.withdraw(100);
-        acc.printAccountDetails();
+        try {
+            acc.deposit(-50);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            acc.withdraw(1000);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

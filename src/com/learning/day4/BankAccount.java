@@ -5,8 +5,7 @@ public class BankAccount {
     private double balance;
 //Balance is private to protect data integrity and prevent direct modification from outside the class.
 
-
-    //We don’t provide a setter because balance should only be modified through
+//We don’t provide a setter because balance should only be modified through
 //controlled methods like deposit and withdraw, which include validation.
     public BankAccount(String accountHolder) {
         this.accountHolder = accountHolder;
@@ -26,23 +25,22 @@ public class BankAccount {
             balance += amount;
             System.out.println("Deposited: " + amount);
         } else {
-            System.out.println("Invalid deposit amount");
+            throw new InvalidAmountException("Invalid deposit amount");
         }
-
     }
 
     public void withdraw(double amount) {
         float withdrawalFee = 2.0F;
 
         if (!(amount < 0)) {
-            if (balance >= 0) {
+            if (balance > 0) {
                 balance -= amount + withdrawalFee;
                 System.out.println("Withdrawn: " + amount + " (Fee: " + withdrawalFee + ")");
             } else {
-                System.out.println("Insufficient balance");
+                throw new InsufficientBalanceException("Insufficient balance");
             }
         } else {
-            System.out.println("Invalid withdrawal amount");
+            throw new InvalidAmountException("Invalid withdrawal amount");
         }
     }
 
