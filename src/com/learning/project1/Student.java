@@ -1,21 +1,24 @@
 package com.learning.project1;
 
+import com.learning.day5.ArrayListDemo;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Student {
     private String name;
-    private int[] marks;
+    private ArrayList<Integer> marks;
 
-    public Student(String name, int[] marks) {
+    public Student(String name, ArrayList<Integer> marks) {
         this.name = name;
 
-        for (int i = 0; i < marks.length; i++) {
-            if (!(marks[i] >= 0 && marks[i] <= 100)) {
-                throw new InvalidMarkException("Invalid mark at index " + i + ": " + marks[i]);
+        for (int i = 0; i < marks.size(); i++) {
+            if (!(marks.get(i) >= 0 && marks.get(i) <= 100)) {
+                throw new InvalidMarkException("Invalid mark at index " + i + ": " + marks.get(i));
             }
         }
 
-        this.marks = Arrays.copyOf(marks, marks.length);
+        this.marks = new ArrayList<>(marks);
     }
 
     public float calculateAverage() {
@@ -25,7 +28,7 @@ public class Student {
             sum += mark;
         }
 
-        return (float) sum / this.marks.length;
+        return (float) sum / this.marks.size();
     }
 
     public String calculateGrade() {
